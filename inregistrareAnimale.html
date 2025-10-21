@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <title>Formular de înregistrare animale</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="form-container">
+    <h1>Formular de înregistrare animale</h1>
+    <p>Completează formularul de mai jos pentru a înregistra animalul tău la clinica veterinară.</p>
+    <img class="hero-img" src="rabbit.jpg">
+
+    <form>
+      <label for="nume-stapan">Nume stăpân</label>
+      <input type="text" id="nume-stapan" name="nume-stapan" required>
+
+      <label for="telefon">Telefon</label>
+      <input type="text" id="telefon" name="telefon" required>
+
+      <label for="nume-animal">Nume animal</label>
+      <input type="text" id="nume-animal" name="nume-animal" required>
+
+      <label for="specie">Specie</label>
+      <select id="specie" name="specie" required>
+        <option value="">Selectează...</option>
+        <option value="caine">Câine</option>
+        <option value="pisica">Pisică</option>
+        <option value="iepure">Iepure</option>
+        <option value="altul">Altul</option>
+      </select>
+
+      <div class="radio-group">
+        <label>Sexul animalului:</label><br>
+        <label><input type="radio" name="sex" value="mascul" required> Mascul</label>
+        <label><input type="radio" name="sex" value="femela"> Femelă</label>
+        <label><input type="radio" name="sex" value="nustiu"> Nu stiu</label>
+      </div>
+
+      <div class="checkbox-group">
+        <label>Servicii dorite:</label><br>
+        <label><input type="checkbox" name="servicii" value="vaccinare"> Vaccinare</label>
+        <label><input type="checkbox" name="servicii" value="deparazitare"> Deparazitare</label>
+        <label><input type="checkbox" name="servicii" value="consult"> Consult</label>
+      </div>
+
+      <label for="observatii">Observații</label>
+      <textarea id="observatii" name="observatii" placeholder="Scrie aici orice informații suplimentare..."></textarea>
+
+      <div class="buttons">
+        <button type="submit">Trimite</button>
+        <button type="reset">Resetează</button>
+      </div>
+    </form>
+  </div>
+
+</body>
+</html>
