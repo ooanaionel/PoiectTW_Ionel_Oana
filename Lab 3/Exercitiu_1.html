@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercițiul 1</title>
+</head>
+<body>
+    <h1>Exercițiul 1</h1>
+    <p>Verifică consola (apasă F12 sau Click Dreapta -> Inspect -> Console).</p>
+
+    <script>
+        
+        let myName = "Toma";
+        let mySurname = "Bogdan";
+        let myAge = 21; 
+        let studyYear = 3;
+        let myHobby = " Proiectarea 3D ";
+
+    
+        let diferentaVarsta = 25 - myAge;
+        myAge += diferentaVarsta; 
+
+        
+        console.log("--- Folosind concatenare (+) ---");
+        console.log("Buna! Ma numesc " + myName + " " + mySurname + " și am " + myAge + " ani. Sunt la Universitatea Politehnica Bucuresti, în anul " + studyYear + ".\n" + "Unul dintre hobby-urile mele este " + myHobby + ".");
+
+        
+        console.log("\n--- Folosind placeholders (Template Literals) ---");
+        console.log(`Buna! Ma numesc ${myName} ${mySurname} și am ${myAge} ani. Sunt la Universitatea Politehnica Bucuresti, în anul ${studyYear}.
+Unul dintre hobby-urile mele este ${myHobby}.`);
+
+        
+        console.log("\n--- Tipuri de date ---");
+        console.log("Tipul variabilei myName:", typeof myName);
+        console.log("Tipul variabilei myAge:", typeof myAge);
+        console.log("Tipul variabilei myHobby:", typeof myHobby);
+    </script>
+</body>
+</html>

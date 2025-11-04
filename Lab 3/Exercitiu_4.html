@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercițiul 4</title>
+</head>
+<body>
+    <h1>Exercițiul 4</h1>
+    <p>Verifică consola (apasă F12 sau Click Dreapta -> Inspect -> Console).</p>
+
+    <script>
+       
+        let l1 = 13, l2 = 17, l3 = 13, l4 = 17;
+
+        console.log(`Laturile date sunt: ${l1}, ${l2}, ${l3}, ${l4}`);
+
+        
+        let laturi = [l1, l2, l3, l4];
+        laturi.sort((a, b) => a - b);
+
+        
+        if (laturi[0] > 0 && 
+            laturi[0] === laturi[1] && 
+            laturi[2] === laturi[3]) {
+            
+            let laturaA = laturi[0]; 
+            let laturaB = laturi[2]; 
+
+            let perimetrul = 2 * (laturaA + laturaB);
+            let aria = laturaA * laturaB;
+
+            console.log(`Cele 4 numere pot reprezenta laturi ale unui dreptunghi! Perimetrul este: ${perimetrul}. Aria este: ${aria}.`);
+
+        } else {
+            console.log("Cele 4 numere nu pot reprezenta laturi ale unui dreptunghi!");
+        }
+    </script>
+</body>
+</html>

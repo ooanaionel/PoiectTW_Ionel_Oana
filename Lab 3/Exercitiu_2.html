@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercițiul 2</title>
+</head>
+<body>
+    <h1>Exercițiul 2</h1>
+    <p>Verifică consola (apasă F12 sau Click Dreapta -> Inspect -> Console).</p>
+
+    <script>
+    
+        let tranzactie1 = true;
+        let tranzactie2 = false;
+
+        
+        console.log("Test pentru tranzactie1 (true):");
+        if (tranzactie1) {
+            console.log("Tranzactie acceptata!");
+        }
+
+        
+        console.log("\nTest pentru tranzactie2 (false):");
+        if (tranzactie2) {
+            
+            console.log("Tranzactie acceptată!");
+        } else {
+            
+            console.log("Tranzactie refuzată!");
+        }
+    </script>
+</body>
+</html>
+
+/* Prima instrucțiune (if (tranzactie1)):
+
+Variabila tranzactie1 are valoarea true.
+
+Instrucțiunea if verifică dacă condiția din paranteze este adevărată.
+
+Deoarece true este adevărat, codul din interiorul blocului if (adică { ... }) se execută.
+
+Rezultatul: în consolă se afișează "Tranzactie acceptata!".
+
+
+A doua instrucțiune (if (tranzactie2) ... else ...):
+
+Variabila tranzactie2 are valoarea false.
+
+Instrucțiunea if verifică condiția tranzactie2.
+
+Deoarece false este evaluat ca fals, codul din interiorul primului bloc (if) este omis.
+
+Programul sare automat la blocul else și execută codul din interiorul acestuia.
+
+Rezultatul: în consolă se afișează "Tranzactie refuzată!".
+*/
+

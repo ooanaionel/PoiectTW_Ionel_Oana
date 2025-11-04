@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercițiul 3</title>
+</head>
+<body>
+    <h1>Exercițiul 3</h1>
+    <p>Verifică consola (apasă F12 sau Click Dreapta -> Inspect -> Console).</p>
+
+    <script>
+        
+        let n1 = 15;
+        let n2 = 4;
+        let n3 = 12;
+
+        console.log(`Numerele date sunt: ${n1}, ${n2}, ${n3}`);
+
+        
+        let numere = [n1, n2, n3];
+
+        
+        numere.sort(function(a, b) {
+            return b - a;
+        });
+
+        
+        console.log("Numerele în ordine descrescătoare:");
+        console.log(numere.join(', ')); 
+
+       
+    </script>
+</body>
+</html>
