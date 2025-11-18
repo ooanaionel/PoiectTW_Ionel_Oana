@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Dinamică de Activități Zilnice</title>
+    <link rel="stylesheet" href="stil.css">
+</head>
+<body>
+
+    <header>
+        <h1>Lista mea de activități </h1>
+        <p>Introduceți o activitate zilnică în câmpul de mai jos și apăsați "Adaugă activitate". Data curentă va fi înregistrată automat.</p>
+    </header>
+
+    <div class="card-container">
+        <div class="input-group">
+            <input type="text" id="inputActivitate" placeholder="De exemplu: Trimite e-mailuri importante...">
+            <button id="btnAdauga">Adaugă activitate</button>
+        </div>
+
+        <h2>Activități adăugate:</h2>
+        <ul id="listaActivitati">
+            </ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

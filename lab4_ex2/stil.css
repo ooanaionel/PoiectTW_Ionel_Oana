@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #d8c25c;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+}
+
+h1 {
+    color: #ff1400;
+    margin-bottom: 30px;
+}
+
+.card-produs {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.card-produs h2 {
+    color: #ff12df;
+    margin-top: 0;
+    font-size: 1.8em;
+}
+
+.imagine-produs {
+    background-color: #e9ecef;
+    height: 150px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6c757d;
+    font-style: italic;
+}
+
+#btnDetalii {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+}
+
+#btnDetalii:hover {
+    background-color: #0056b3;
+}
+
+/* Stil pentru secțiunea de detalii */
+.detalii-container {
+    text-align: left;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 10px;
+    background-color: #f9f9f9;
+}
+
+.detalii-container h3 {
+    color: #ff12df;
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 5px;
+}
+
+/* CLASA NECESARĂ: ascunde elementul */
+.ascuns {
+    display: none;
+}
