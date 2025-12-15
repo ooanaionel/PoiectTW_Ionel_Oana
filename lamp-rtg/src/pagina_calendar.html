@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <title>Calendar Meciuri — FC Argeș Basketball</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="brand">
+      <img src="fc_arges.png" style="width:90px;border-radius:5px;margin-bottom:5px;">
+      <div><strong>FC Argeș</strong></div>
+    </div>
+    <nav>
+      <a href="index.html">Acasă</a>
+      <a href="pagina_jucatori.html">Jucători</a>
+      <a href="pagina_staff.html">Staff</a>
+      <a href="pagina_calendar.html">Calendar</a>
+      <a href="pagina_contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <div style="text-align:center; margin-bottom:10px;">
+    <button id="prevMonth">‹</button>
+    <h2 id="calendarTitle" style="display:inline-block; margin:0 10px;"></h2>
+    <button id="nextMonth">›</button>
+  </div>
+
+  <!-- Legenda în partea stângă -->
+  <div style="text-align:left; color:gray; font-size:12px; margin-left:10px; margin-bottom:5px;">
+    ⚪ = Acasă &nbsp;&nbsp; 🟣 = Deplasare
+  </div>
+
+  <table id="calendar" cellspacing="0" cellpadding="10" style="width:100%; text-align:center;"></table>
+
+  <footer>© 2025 FC Argeș Basketball</footer>
+</div>
+
+<script>
+  // === LISTA MECIURILOR ===
+ const meciuri = [
+    { data: "2025-11-01", adversar: "CSM CSU Raiffeisen Oradea", locatie: "Pitești Arena", ora: "18:00",  competitie: "LNBM" },
+    { data: "2025-11-09", adversar: "CS Valcea 1924 Ramnicu Valcea", locatie: "Sala Traian Ramnicu Valcea", ora: "19:00",  competitie: "LNBM" },
+    { data: "2025-11-14", adversar: "CSO Voluntari", locatie: "Pitești Arena", ora: "19:00",  competitie: "LNBM" }
+  ];
+
+  const luni = [
+    "Ianuarie", "Februarie", "Martie", "Aprilie", "Mai", "Iunie",
+    "Iulie", "August", "Septembrie", "Octombrie", "Noiembrie", "Decembrie"
+  ];
+
+  let lunaCurenta = 10; // noiembrie (0-indexed)
+  let anCurent = 2025;
+
+  const calendar = document.getElementById("calendar");
+  const title = document.getElementById("calendarTitle");
+
+  function genereazaCalendar(luna, an) {
+    calendar.innerHTML = ""; // curăță tabelul
+    title.textContent = `Calendar Meciuri — ${luni[luna]} ${an}`;
+
+    const zileInLuna = new Date(an, luna + 1, 0).getDate();
+    const primaZi = new Date(an, luna, 1).getDay(); // 0 = Duminică
+    const offset = primaZi === 0 ? 6 : primaZi - 1;
+
+    // === Header zile săptămână ===
+    const zile = ["Luni", "Marți", "Miercuri", "Joi", "Vineri", "Sâmbătă", "Duminică"];
+    const headerRow = document.createElement("tr");
+    for (let z of zile) {
+      const th = document.createElement("th");
+      th.textContent = z;
+      headerRow.appendChild(th);
+    }
+    calendar.appendChild(headerRow);
+
+    // === Generare celule ===
+    let row = document.createElement("tr");
+
+    // Zile goale la început
+    for (let i = 0; i < offset; i++) {
+      const empty = document.createElement("td");
+      row.appendChild(empty);
+    }
+
+    for (let zi = 1; zi <= zileInLuna; zi++) {
+      const cell = document.createElement("td");
+      const dataStr = `${an}-${String(luna + 1).padStart(2, "0")}-${String(zi).padStart(2, "0")}`;
+      const meci = meciuri.find(m => m.data === dataStr);
+
+      const dateEl = document.createElement("div");
+      dateEl.textContent = zi;
+      cell.appendChild(dateEl);
+
+      if (meci) {
+        const dot = document.createElement("span");
+        dot.textContent = (meci.locatie === "Pitești Arena") ? "⚪" : "🟣";
+        const matchInfo = document.createElement("div");
+        matchInfo.textContent = `${meci.adversar} (${meci.competitie})`;
+
+        cell.appendChild(dot);
+        cell.appendChild(matchInfo);
+      }
+
+      row.appendChild(cell);
+
+      // dacă e duminică, adaugă rândul și creează unul nou
+      if ((zi + offset) % 7 === 0) {
+        calendar.appendChild(row);
+        row = document.createElement("tr");
+      }
+    }
+
+    // completează ultimele zile dacă rândul e incomplet
+    if (row.children.length > 0) {
+      calendar.appendChild(row);
+    }
+  }
+
+  // === Evenimente pentru butoane lună ===
+  document.getElementById("prevMonth").addEventListener("click", () => {
+    lunaCurenta--;
+    if (lunaCurenta < 0) {
+      lunaCurenta = 11;
+      anCurent--;
+    }
+    genereazaCalendar(lunaCurenta, anCurent);
+  });
+
+  document.getElementById("nextMonth").addEventListener("click", () => {
+    lunaCurenta++;
+    if (lunaCurenta > 11) {
+      lunaCurenta = 0;
+      anCurent++;
+    }
+    genereazaCalendar(lunaCurenta, anCurent);
+  });
+
+  // === Prima afișare ===
+  genereazaCalendar(lunaCurenta, anCurent);
+</script>
+</body>
+</html>
